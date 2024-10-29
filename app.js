@@ -1,8 +1,11 @@
 const express = require('express');
+const todosRoutes = require('./routes/data')
 const app = express();
 const port = 3000;
 
 app.set('view engine', 'ejs')
+app.use(express.json());
+app.use('/todos', todosRoutes)
 
 app.get('/', (req, res) => {
     res.render('index');
